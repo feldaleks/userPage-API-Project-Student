@@ -26,15 +26,42 @@
             </div>	
         </div>	
         <div class="buttons">	
+            <button id="btn-generate" onclick="generateUser()">Generate User</button>
+            <button>Save User Data</button>	
             <button>Load User Data</button>	
-            <button>Display User</button>	
         </div>	
     </div>
 
     <script id="quote-template" type="text/x-handlebars-template">
-        <p>Favorite Quote:</p>
+        <h4>Favorite Quote:</h4>
         <p>"{{quote}}"</p>
         <p>- Kanye West.</p>
+    </script>
+
+    <script id="about-template" type="text/x-handlebars-template">
+        <h4>About me:</h4>
+        <div class="meat-text">"{{about}}"</div>
+    </script>
+
+    <script id="user-template" type="text/x-handlebars-template">
+        <img id="profile-pic" src={{img}}>
+        <div class="user-info">
+            <p>{{name}} {{lastName}}</p>
+            <p>{{city}}, {{state}}</p>
+        </div>
+    </script>
+
+    <script id="friends-template" type="text/x-handlebars-template">
+        <ul id="friends-list">
+            {{#each friends}}
+            <li>{{this}}</li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <script id="pokemon-template" type="text/x-handlebars-template">
+        <img id="pokemon-image" src={{img}}>
+        <p id="pokemon-text">Favorite pokemon: {{#properCase}}{{name}}{{/properCase}}</p>
     </script>
 
     <script src="APIManager.js"></script>
