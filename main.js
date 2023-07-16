@@ -21,5 +21,6 @@ function generateUser(){
     $(".meat-container").empty();
     //$("#friends-list").empty();
     $(".friends-container").empty();
+    //let userObject = renderer.getUserObject(api.initialise());
     renderer.render(api.initialise());
 }
