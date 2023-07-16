@@ -40,17 +40,29 @@ class Renderer {
                 }
 
                 this.updatePage(userObject);
+
+
+                // save current user info to local storage
+                let userObjectString = JSON.stringify(userObject);
+                localStorage.setItem('currentUser',userObjectString);
             })
             .catch ((error) => console.log(error)) 
     }
 
     updatePage = function (userObject) {
 
+        $(".user-container").empty();
+        $(".quote-container").empty();
+        $(".pokemon-container").empty();
+        $(".meat-container").empty();
+        //$("#friends-list").empty();
+        $(".friends-container").empty();
+        
         //const userObject = await this.getUserObject(promiseDate);
         // render "Quote" section
         const sourceQuote = $("#quote-template").html();
         const templateQuote = Handlebars.compile(sourceQuote);
-        $(".quote-container").append(templateQuote({quote: userObject.userInfo.favoriteQuote}));
+        $(".quote-container").append(templateQuote(userObject.userInfo.favoriteQuote));
 
         // render "About me" section
         const sourceAbout = $("#about-template").html();
